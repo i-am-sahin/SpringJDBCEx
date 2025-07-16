@@ -18,14 +18,15 @@ public class StudentRepo {
     public JdbcTemplate getJdbc() {
         return jdbc;
     }
-@Autowired
+    @Autowired
     public void setJdbc(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
 
     public void save(Student student) {
-        String insertSql = "insert into student(rollno,name,marks) values (?,?,?)";
+        String insertSql = "insert into student(rollno, name, marks) values (?,?,?)";
         int rows = jdbc.update(insertSql, student.getRollNo(),student.getName(),student.getMarks());
+
         System.out.println(rows + " Effected");
     }
 
